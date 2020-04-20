@@ -13,6 +13,12 @@ class TodolistsController < ApplicationController
   	redirect_to '/top'
   end
 
+  def index
+  	  #インスタンス変数には、すべての投稿履歴(list)が入るので、複数形(@lists)にする
+  	  @lists = List.all
+
+  end
+
   private
 
   def list_params
