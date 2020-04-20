@@ -10,12 +10,19 @@ class TodolistsController < ApplicationController
   	#DBへ保存する
   	list.save
   	#トップ画面へリダイレクト
-  	redirect_to '/top'
+  	redirect_to todolist_path(list.id)
   end
 
   def index
   	  #インスタンス変数には、すべての投稿履歴(list)が入るので、複数形(@lists)にする
   	  @lists = List.all
+
+  end
+
+  def show
+  	  #詳細ページを表示する
+  	  #取得するレコードは1件なので、@listと単数形
+  	  @list = List.find(params[:id])
 
   end
 
